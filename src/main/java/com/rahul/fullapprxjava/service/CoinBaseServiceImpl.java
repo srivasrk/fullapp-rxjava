@@ -19,7 +19,7 @@ public class CoinBaseServiceImpl implements CoinBaseService {
 
         return webClient
                 .get()
-                .uri("https://api.coinbase.com/v2/prices/cryptoName/buy", "priceName")
+                .uri("https://api.coinbase.com/v2/prices/{cryptoName}/buy", priceName)
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .flatMap(clientResponse -> clientResponse.bodyToMono(CoinBaseResponse.class));
